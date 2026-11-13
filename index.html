@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELECTRO BOT - COMPONENTES ELECTRONICOS PARA ROBOTICA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <button class="icon-btn" onclick="toggleMenu()" aria-label="Menú">☰</button>
+    <div>
+      <h1>ELECTRO BOT</h1>
+      <p>Componentes para <b>Robótica Educativa</b></p>
+    </div>
+    <button class="cart-btn" onclick="showCart()" aria-label="Carrito">🛒<span id="cartCount">0</span></button>
+  </header>
+
+  <aside id="sideMenu" class="side-menu">
+    <button class="close" onclick="toggleMenu()">×</button>
+    <h2>ELECTRO BOT</h2>
+    <button onclick="goTo('inicio'); toggleMenu()">🏠 Inicio</button>
+    <button onclick="goTo('categorias'); toggleMenu()">📂 Categorías</button>
+    <button onclick="goTo('productos'); toggleMenu()">🛍️ Productos</button>
+    <button onclick="showFavorites(); toggleMenu()">❤️ Favoritos</button>
+    <button onclick="showProfile(); toggleMenu()">👤 Perfil</button>
+  </aside>
+
+  <main id="inicio">
+    <section class="hero">
+      <div>
+        <h2>Construye,<br>aprende e innova</h2>
+        <p>Componentes electrónicos para tus proyectos de robótica.</p>
+        <button class="green-btn" onclick="goTo('productos')">Ver productos</button>
+      </div>
+      <div class="robot">🤖</div>
+    </section>
+
+    <div class="search">
+      <span>🔎</span>
+      <input id="searchInput" type="search" placeholder="Buscar componentes..." oninput="searchProducts()">
+    </div>
+
+    <section id="categorias">
+      <div class="section-title">
+        <h2>Categorías</h2>
+        <button onclick="showAllCategories()">Ver todas</button>
+      </div>
+      <div class="categories">
+        <button class="category" onclick="filterCategory('Sensores')"><span>📡</span><b>Sensores</b></button>
+        <button class="category" onclick="filterCategory('Microcontroladores')"><span>💻</span><b>Microcontroladores</b></button>
+        <button class="category" onclick="filterCategory('Motores')"><span>⚙️</span><b>Motores</b></button>
+        <button class="category" onclick="filterCategory('Actuadores')"><span>🔧</span><b>Actuadores</b></button>
+        <button class="category" onclick="filterCategory('Kits')"><span>🤖</span><b>Kits</b></button>
+        <button class="category" onclick="filterCategory('Otros')"><span>🔌</span><b>Otros</b></button>
+      </div>
+    </section>
+
+    <section id="productos">
+      <div class="section-title">
+        <h2>Productos destacados</h2>
+        <button onclick="showAllProducts()">Ver todos</button>
+      </div>
+      <div id="productGrid" class="products"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-box" id="modalBox"></div>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="active" onclick="goTo('inicio')"><span>⌂</span>Inicio</button>
+    <button onclick="goTo('categorias')"><span>▦</span>Categorías</button>
+    <button onclick="showFavorites()"><span>♡</span>Favoritos</button>
+    <button onclick="showProfile()"><span>♙</span>Perfil</button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
